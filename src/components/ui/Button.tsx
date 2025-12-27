@@ -5,12 +5,13 @@ import { forwardRef } from 'react';
 import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 
-interface ButtonProps extends HTMLMotionProps<'button'> {
+interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'children'> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'danger' | 'success';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

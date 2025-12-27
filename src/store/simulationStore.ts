@@ -124,9 +124,7 @@ export const useSimulationStore = create<SimulationStore>()(
         set((state) => {
           const newStats = { ...state.stats };
           changes.forEach(({ stat, change }) => {
-            if (stat !== 'happiness') {
-              newStats[stat] = clamp(newStats[stat] + change, 0, 100);
-            }
+            newStats[stat] = clamp(newStats[stat] + change, 0, 100);
           });
           newStats.happiness = calculateHappiness(newStats);
           return { stats: newStats };
